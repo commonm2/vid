@@ -1,0 +1,313 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  background: #333;
+  display: flex;
+}
+header {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10vh 0;
+  z-index: 3;
+  background: black;
+}
+header h1 {
+  color: white;
+  text-align: center;
+}
+header h1 i {
+  font-size: 7vw;
+  display: block;
+}
+header h1 span {
+  font-size: 1vw;
+}
+address {
+  color: #ccc;
+  font-size: 1vw;
+  line-height: 0.8;
+}
+nav {
+  position: absolute;
+  top: 10vh;
+  right: 5vw;
+  z-index: 3;
+}
+nav ul {
+  display: flex;
+  gap: 1vw;
+}
+nav a {
+  font-size: 24px;
+  color: #ccc;
+}
+section {
+  width: 80%;
+  color: white;
+  display: flex;
+  margin-top: 15vh;
+}
+article {
+  flex: 1;
+  padding: 70px 40px 100px;
+  cursor: pointer;
+  transition: 1s;
+  opacity: 0.6;
+  position: relative;
+  z-index: 1;
+}
+article:before {
+  position: absolute;
+  width: 80%;
+  height: 95%;
+  background: #666;
+  top: 0;
+  left: -200px;
+  content: "";
+  z-index: -1;
+  opacity: 0;
+  transition: 1s;
+  visibility: hidden;
+}
+article:hover {
+  flex: 2;
+  opacity: 1;
+}
+article:hover figure {
+  filter: saturate(120%);
+  height: 25vh;
+}
+article:hover::before {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+article:hover .txt {
+  width: 65%;
+}
+article:hover .txt h2 {
+  font-size: 4vw;
+  padding-top: 0;
+}
+article:hover .txt h2::after {
+  width: 100%;
+  background: orangered;
+}
+article figure {
+  width: 100%;
+  height: 15vh;
+  overflow: hidden;
+  filter: saturate(20%);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
+  transition: 1s;
+}
+article figure video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+article .inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+article .txt {
+  width: 100%;
+  transition: 1s;
+}
+article .txt h2 {
+  font: bold 2vw / 1 "Itim", sans-serif;
+  padding: 70px 0 40px;
+  transition: 1s;
+  white-space: nowrap;
+}
+article .txt h2::after {
+  display: block;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: white;
+  margin: 20px 0;
+  transition: 1s;
+}
+article .txt p {
+  font: 500 14px / 1.2 "arial", sans-serif;
+  color: #999;
+}
+aside {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  padding: 20vh 7vw 15vh 20vw;
+  display: flex;
+  background: black;
+  opacity: 0;
+  transition: 1s ease-in;
+}
+aside .txt {
+  width: 25%;
+  position: relative;
+}
+aside figure {
+  width: 75%;
+}
+aside figure video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+aside .txt h2 {
+  font: bold 4vw / 1 "Itim", sans-serif;
+  color: #d4d4d4;
+  margin-bottom: 20px;
+}
+aside .txt p {
+  font: 500 14px / 1.2 "arial", sans-serif;
+  color: #999;
+  margin-bottom: 100px;
+}
+aside .txt a.closeBtn {
+  color: orangered;
+}
+body.on {
+  overflow-y: hidden;
+}
+body.on aside {
+  left: 0;
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  header h1 i {
+    font-size: 84px;
+  }
+  header h1 span {
+    font-size: 12px;
+  }
+  address {
+    font-size: 12px;
+  }
+  article .txt h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 960px) {
+  main {
+    flex-direction: column;
+  }
+  header {
+    flex-direction: row;
+    padding: 0 5vw;
+    height: 10vh;
+    width: 100%;
+  }
+  header h1 i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  header h1 span {
+    font-size: 20px;
+  }
+  address {
+    display: none;
+  }
+  nav {
+    top: 4vh;
+    right: 5vw;
+  }
+  section {
+    width: 100%;
+    margin-top: 5vh;
+    flex: 1;
+  }
+  article {
+    padding: 70px 20px 100px;
+  }
+  aside {
+    padding: 15vh 3vw 15vh 3vw;
+    flex-direction: column;
+  }
+  aside .txt {
+    width: 100%;
+  }
+  aside figure {
+    width: 100%;
+  }
+  aside .txt a.closeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  aside .txt p {
+    margin-bottom: 3vh;
+  }
+  aside .txt h2 {
+    margin-bottom: 1vh;
+  }
+}
+@media (max-width: 640px) {
+  header {
+    position: sticky;
+    top: 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+  }
+  nav {
+    position: fixed;
+  }
+  main {
+    height: 100%;
+  }
+  section {
+    flex-direction: column;
+    margin-top: 0;
+  }
+  article {
+    padding: 20px 20px 40px;
+    opacity: 1;
+  }
+  article:hover {
+    flex: 1;
+  }
+  article::before {
+    display: none;
+  }
+  article .txt h2,
+  article:hover .txt h2 {
+    padding: 0 0 40px;
+    font-size: 30px;
+  }
+  article:hover .txt h2::after {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: white;
+    margin: 20px 0;
+    transition: 1s;
+  }
+  article .txt p {
+    display: none;
+  }
+  article figure,
+  article:hover figure {
+    filter: saturate(100%);
+    height: 20vh;
+  }
+}
